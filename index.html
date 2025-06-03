@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WJL79R92');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Figgure AI - Modern AI Solutions from Concept to Production</title>
+    <meta name="description" content="End-to-end ML engineering with 10+ years experience. Specializing in LLMs, RAG systems, Stable Diffusion, and production AI deployment.">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #FAFAFA;
+            --white: #FFFFFF;
+            --text: #0A0A0A;
+            --accent: #2563EB;
+            --accent-light: #3B82F6;
+            --accent-dark: #1E40AF;
+            --gray: #E5E5E5;
+            --gray-dark: #9CA3AF;
+            --light-gray: #666;
+            --success: #10B981;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --shadow-lg: rgba(0, 0, 0, 0.15);
+            --gradient-1: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+            --gradient-2: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
+            --gradient-3: linear-gradient(135deg, #EC4899 0%, #BE185D 100%);
+        }
+
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 300;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'IBM Plex Mono', monospace;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(250, 250, 250, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--gray);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav.scrolled {
+            background: rgba(250, 250, 250, 0.95);
+            box-shadow: 0 4px 20px var(--shadow);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'IBM Plex Mono', monospace;
+            font-weight: 600;
+            font-size: 1.5rem;
+            color: var(--text);
+            text-decoration: none;
+            position: relative;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .logo:hover::after {
+            width: 100%;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .nav-links a:hover::before {
+            width: 100%;
+        }
+
+        /* Hero */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 2rem;
+            background: linear-gradient(135deg, var(--bg) 0%, #F8FAFC 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content .subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            color: var(--light-gray);
+            margin-bottom: 3rem;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 1.25rem 2.5rem;
+            background: var(--text);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-btn:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px var(--shadow-lg);
+        }
+
+        .cta-btn:hover::before {
+            left: 100%;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Services */
+        .services {
+            padding: 8rem 0;
+            background: var(--white);
+            position: relative;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            text-align: center;
+            margin-bottom: 5rem;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            padding: 3rem;
+            border: 1px solid var(--gray);
+            border-radius: 12px;
+            background: var(--bg);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px var(--shadow-lg);
+            border-color: var(--accent);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .service-card p {
+            color: var(--light-gray);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .result {
+            padding: 1.25rem;
+            background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+            border-left: 4px solid var(--accent);
+            border-radius: 6px;
+            font-style: italic;
+            color: var(--accent);
+            font-weight: 400;
+            position: relative;
+        }
+
+        .result::before {
+            content: '"';
+            font-size: 2rem;
+            position: absolute;
+            top: 0.5rem;
+            left: 0.75rem;
+            color: var(--accent);
+            opacity: 0.3;
+        }
+
+        /* GenAI Section */
+        .genai {
+            padding: 8rem 0;
+            background: linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .genai::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 20%, rgba(109, 40, 217, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(37, 99, 235, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .genai-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .genai-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .genai-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: all 0.4s ease;
+        }
+
+        .genai-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px var(--shadow-lg);
+        }
+
+        .genai-card-header {
+            padding: 1.5rem;
+            color: white;
+            position: relative;
+        }
+
+        .genai-card:nth-child(1) .genai-card-header {
+            background: var(--gradient-1);
+        }
+
+        .genai-card:nth-child(2) .genai-card-header {
+            background: var(--gradient-2);
+        }
+
+        .genai-card:nth-child(3) .genai-card-header {
+            background: var(--gradient-3);
+        }
+
+        .genai-card-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .genai-card-body {
+            padding: 2rem;
+        }
+
+        .genai-card-body p {
+            color: var(--light-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .tech-item {
+            padding: 0.5rem 1rem;
+            background: #F1F5F9;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--light-gray);
+        }
+
+        /* About */
+        .about {
+            padding: 8rem 0;
+            background: linear-gradient(135deg, var(--bg) 0%, #F1F5F9 100%);
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 2.5rem;
+            font-weight: 500;
+        }
+
+        .about-text {
+            font-size: 1.2rem;
+            color: var(--light-gray);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            text-align: left;
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px var(--shadow);
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 4rem;
+        }
+
+        .tech-tag {
+            padding: 0.75rem 1.5rem;
+            background: var(--text);
+            color: white;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .tech-tag:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--accent);
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        .stat-label {
+            color: var(--light-gray);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Expertise */
+        .expertise {
+            padding: 8rem 0;
+            background: var(--white);
+        }
+
+        .expertise-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .expertise-card {
+            padding: 2.5rem;
+            border: 1px solid var(--gray);
+            border-radius: 12px;
+            background: var(--bg);
+            transition: all 0.4s ease;
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px var(--shadow);
+        }
+
+        .expertise-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .expertise-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .expertise-card p {
+            color: var(--light-gray);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .expertise-list {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .expertise-list li {
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            color: var(--light-gray);
+        }
+
+        .expertise-list li::before {
+            content: '→';
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Testimonial */
+        .testimonial {
+            padding: 6rem 0;
+            background: var(--bg);
+            text-align: center;
+        }
+
+        .testimonial-content {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 3rem;
+            background: linear-gradient(135deg, #F8FAFC 0%, var(--white) 100%);
+            border-radius: 16px;
+            box-shadow: 0 8px 30px var(--shadow);
+            position: relative;
+        }
+
+        .testimonial-content::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--accent);
+            position: absolute;
+            top: 1rem;
+            left: 2rem;
+            opacity: 0.3;
+        }
+
+        .testimonial-quote {
+            font-size: 1.6rem;
+            font-style: italic;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .testimonial-author {
+            color: var(--light-gray);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 8rem 0;
+            background: linear-gradient(135deg, var(--text) 0%, #1E293B 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 4rem;
+            font-weight: 500;
+            color: white;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            padding: 1.25rem 2.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.4s ease;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-btn:hover {
+            border-color: var(--accent);
+            background: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 3rem 0;
+            text-align: center;
+            color: var(--gray-dark);
+            font-size: 0.9rem;
+            background: var(--white);
+            border-top: 1px solid var(--gray);
+        }
+
+        /* Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .nav-container {
+                padding: 1rem 1.5rem;
+            }
+
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            .services-grid, .expertise-grid, .genai-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .service-card, .expertise-card {
+                padding: 2rem;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tech-tags {
+                justify-content: center;
+            }
+
+            .stats {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .about-text {
+                text-align: center;
+                padding: 2rem;
+            }
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            z-index: 1001;
+            transition: width 0.1s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WJL79R92"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator"></div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#" class="logo">figgure.ai</a>
+            <ul class="nav-links">
+                <li><a href="#services">services</a></li>
+                <li><a href="#genai">gen ai</a></li>
+                <li><a href="#expertise">expertise</a></li>
+                <li><a href="#about">about</a></li>
+                <li><a href="#contact">contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Modern AI Solutions that Scale</h1>
+            <p class="subtitle">Solutions Architect with 13+ years experience building production ML systems across computer vision, natural language processing, time series forecasting, and modern generative AI.</p>
+            <a href="#contact" class="cta-btn">Start Your Project</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title fade-up">Services</h2>
+            <div class="services-grid">
+                <div class="service-card fade-up stagger-1">
+                    <h3>👁️ Computer Vision</h3>
+                    <p>Advanced image processing, object detection, and visual recognition systems. From real-time quality control to biometric security and automated visual inspection.</p>
+                    <div class="result">Achieved 90%+ accuracy in production vision applications</div>
+                </div>
+                <div class="service-card fade-up stagger-2">
+                    <h3>📝 Natural Language Processing</h3>
+                    <p>Text extraction, classification, and processing systems at scale. From document analysis to intelligent content processing and information extraction.</p>
+                    <div class="result">Processed 60M+ patient characteristics from 10M abstracts</div>
+                </div>
+                <div class="service-card fade-up stagger-3">
+                    <h3>📈 Time Series & Forecasting</h3>
+                    <p>Predictive analytics, trend analysis, and quantitative modeling. From financial forecasting to operational optimization and demand prediction.</p>
+                    <div class="result">Delivered projects ahead of schedule with measurable alpha</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GenAI Section -->
+    <section class="genai" id="genai">
+        <div class="container">
+            <div class="genai-content">
+                <h2 class="section-title fade-up">Cutting-Edge Generative AI</h2>
+                <div class="genai-grid">
+                    <div class="genai-card fade-up stagger-1">
+                        <div class="genai-card-header">
+                            <h3>LLMs & RAG Systems</h3>
+                            <p>Large Language Models & Retrieval Augmented Generation</p>
+                        </div>
+                        <div class="genai-card-body">
+                            <p>Building intelligent systems that combine the power of large language models with custom knowledge bases. From chatbots to document processing systems that understand your business context.</p>
+                            <div class="tech-list">
+                                <span class="tech-item">GPT-4</span>
+                                <span class="tech-item">Claude</span>
+                                <span class="tech-item">Llama</span>
+                                <span class="tech-item">LangChain</span>
+                                <span class="tech-item">Vector DBs</span>
+                                <span class="tech-item">Semantic Search</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="genai-card fade-up stagger-2">
+                        <div class="genai-card-header">
+                            <h3>Diffusion Models</h3>
+                            <p>Image Generation & Manipulation</p>
+                        </div>
+                        <div class="genai-card-body">
+                            <p>Implementing Stable Diffusion and other image generation models for creative and practical applications. From content creation to product visualization and design automation.</p>
+                            <div class="tech-list">
+                                <span class="tech-item">Stable Diffusion</span>
+                                <span class="tech-item">ControlNet</span>
+                                <span class="tech-item">LoRA Fine-tuning</span>
+                                <span class="tech-item">Img2Img</span>
+                                <span class="tech-item">Inpainting</span>
+                                <span class="tech-item">Style Transfer</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="genai-card fade-up stagger-3">
+                        <div class="genai-card-header">
+                            <h3>Multimodal AI</h3>
+                            <p>Text, Image & Audio Integration</p>
+                        </div>
+                        <div class="genai-card-body">
+                            <p>Creating systems that understand and generate across multiple modalities. From visual question answering to content generation systems that combine text, images, and structured data.</p>
+                            <div class="tech-list">
+                                <span class="tech-item">GPT-4V</span>
+                                <span class="tech-item">CLIP</span>
+                                <span class="tech-item">Whisper</span>
+                                <span class="tech-item">Text-to-Speech</span>
+                                <span class="tech-item">Image Captioning</span>
+                                <span class="tech-item">Visual QA</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise -->
+    <section class="expertise" id="expertise">
+        <div class="container">
+            <div class="expertise-content">
+                <h2 class="section-title fade-up">Full-Spectrum Expertise</h2>
+                <div class="expertise-grid">
+                    <div class="expertise-card fade-up stagger-1">
+                        <div class="expertise-icon">💼</div>
+                        <h3>Pre-Sales & Scoping</h3>
+                        <p>Translating business needs into technical solutions that deliver measurable value.</p>
+                        <ul class="expertise-list">
+                            <li>Technical discovery calls with stakeholders</li>
+                            <li>ML feasibility assessment</li>
+                            <li>Algorithm selection and architecture planning</li>
+                            <li>Data requirements and infrastructure planning</li>
+                        </ul>
+                    </div>
+                    <div class="expertise-card fade-up stagger-2">
+                        <div class="expertise-icon">👥</div>
+                        <h3>Team Building</h3>
+                        <p>Building and leading high-performing technical teams across different organization types.</p>
+                        <ul class="expertise-list">
+                            <li>Technical interviewing and talent assessment</li>
+                            <li>Team structure and workflow design</li>
+                            <li>Managing freelancers and annotation teams</li>
+                            <li>Mentoring junior engineers and interns</li>
+                        </ul>
+                    </div>
+                    <div class="expertise-card fade-up stagger-3">
+                        <div class="expertise-icon">🔄</div>
+                        <h3>Full Development Lifecycle</h3>
+                        <p>Experience across all phases of ML product development from concept to production.</p>
+                        <ul class="expertise-list">
+                            <li>Research and prototyping</li>
+                            <li>Data pipeline development</li>
+                            <li>Model training and optimization</li>
+                            <li>Production deployment and monitoring</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content fade-up">
+                <h2>A Decade of ML Engineering</h2>
+                <p class="about-text">
+                    Solutions Architect and Machine Learning Engineer with 13+ years of experience, including deep expertise in computer vision, aerial imagery analysis, and autonomous systems. 
+                    MS in Mechanical Engineering with focus on Control Systems & Computational Science. 
+                    Led teams across diverse domains—from vegetation monitoring for power utilities to ADAS validation for autonomous vehicles and biometric security systems.
+    Experience spans the full software development lifecycle across different organization types, with particular strength in bridging business requirements and technical implementation.
+    Recently focused on modern generative AI technologies including LLMs, RAG systems, and diffusion models for practical business applications.
+</p>
+                
+                <div class="tech-tags">
+                    <span class="tech-tag">PyTorch</span>
+                    <span class="tech-tag">LangChain</span>
+                    <span class="tech-tag">Stable Diffusion</span>
+                    <span class="tech-tag">AWS</span>
+                    <span class="tech-tag">Docker</span>
+                    <span class="tech-tag">AllenNLP</span>
+                    <span class="tech-tag">scikit-learn</span>
+                    <span class="tech-tag">TensorFlow</span>
+                    <span class="tech-tag">Point Cloud</span>
+                    <span class="tech-tag">LIDAR</span>
+                    <span class="tech-tag">Multi-sensor Fusion</span>
+                    <span class="tech-tag">MongoDB</span>
+                    <span class="tech-tag">Azure</span>
+                    <span class="tech-tag">Google Cloud</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="testimonial">
+        <div class="container">
+            <div class="testimonial-content fade-up">
+                <p class="testimonial-quote">Aleksandar has shown great aptitude and skill as a researcher and is very dedicated to his work. Thanks to his contributions, all projects were completed ahead of schedule.</p>
+                <p class="testimonial-author">— Kartik Krishnan, Head of Quant Research, TickUp AB</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="fade-up">
+                <h2>Let's build something intelligent</h2>
+                <div class="contact-buttons">
+                    <a href="mailto:aleksandar@figgure.ai?subject=ML Project Inquiry" class="contact-btn">Send Email</a>
+                    <a href="https://www.linkedin.com/in/aleksandar-loncar/" target="_blank" class="contact-btn">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Figgure AI · Novi Sad, Serbia</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 100;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Enhanced nav effects
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.nav');
+            const scrollIndicator = document.querySelector('.scroll-indicator');
+            
+            // Nav background
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+
+            // Scroll indicator
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            scrollIndicator.style.width = scrolled + '%';
+        });
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+        });
+
+        // Parallax effect for hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
